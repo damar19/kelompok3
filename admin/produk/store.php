@@ -19,53 +19,30 @@ $data = [
     'name' => $_POST['name'],
     'price' => $_POST['price'],
     'desc' => $_POST['desc'],
-    'image' => $_FILES['image'],
+    'image1' => $_FILES['image1'],
+    'image2' => $_FILES['image2'],
 ];
 
-$format = "." . explode("/", $data["image"]["type"])[1];
-$fix_name = generateName() . $format;
+$fix_image1 = generateName() . "." . explode("/", $data["image1"]["type"])[1];
+$fix_image2 = generateName() . "." . explode("/", $data["image2"]["type"])[1];
 
 $target_dir = "../../assets/products/";
-$target_file = $target_dir . $fix_name;
-$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+$target_file1 = $target_dir . $fix_image1;
+$target_file2 = $target_dir . $fix_image2;
 
-$uploadOk = 1;
-$errorMessage = "";
-
-// Check if file already exists
-if (file_exists($target_file)) {
-    $errorMessage = "Gagal, ulangi proses sekali lagi.";
-    $uploadOk = 0;
-}
-
-// Check file size
-if ($data["image"]["size"] > 500000) {
-    $errorMessage = "Gagal, size foto terlalu besar.";
-    $uploadOk = 0;
-}
-
-// Allow certain file formats
-if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    $errorMessage = "Only JPG, JPEG, & PNG format!";
-    $uploadOk = 0;
-}
-
-// process upload
-if ($uploadOk == 0) {
-    header('Location: /admin/produk?error=' . $errorMessage);
-} else {
-    move_uploaded_file($data["image"]["tmp_name"], $target_file);
-}
+move_uploaded_file($data["image1"]["tmp_name"], $target_file1);
+move_uploaded_file($data["image2"]["tmp_name"], $target_file2);
 
 // save data to db
 $db = (new SQLiteConnection())->connect("../../db/database.db");
-$sql = "INSERT INTO products (name, price, description, image) VALUES (:name, :price, :description, :image)";
+$sql = "INSERT INTO products (name, price, description, image1, image2) VALUES (:name, :price, :description, :image1, :image2)";
 $stmt = $db->prepare($sql);
 $stmt->execute([
     'name' => $data['name'],
     'price' => $data['price'],
     'description' => $data['desc'],
-    'image' => $fix_name,
+    'image1' => $fix_image1,
+    'image2' => $fix_image2,
 ]);
 
 header('Location: /admin/produk');

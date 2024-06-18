@@ -84,8 +84,12 @@ $_SESSION['email'] == null ? header('location: /login') : null;
                     <textarea name="desc" class="textarea textarea-bordered" placeholder="Deskripsi Produk..."></textarea>
                 </label>
                 <label class="form-control w-full">
-                    <div class="label"><span class="label-text">Gambar</span></div>
-                    <input type="file" name="image" class="file-input file-input-bordered file-input-sm rounded-md" />
+                    <div class="label"><span class="label-text">Gambar 1</span></div>
+                    <input type="file" name="image1" class="file-input file-input-bordered file-input-sm rounded-md" />
+                </label>
+                <label class="form-control w-full">
+                    <div class="label"><span class="label-text">Gambar 2</span></div>
+                    <input type="file" name="image2" class="file-input file-input-bordered file-input-sm rounded-md" />
                 </label>
 
                 <button type="submit" class="mt-5 btn btn-primary">Simpan</button>

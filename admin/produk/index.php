@@ -92,7 +92,8 @@ function rupiah($angka)
                         <th>No</th>
                         <th>Nama</th>
                         <th>Harga</th>
-                        <th>Gambar</th>
+                        <th>Gambar 1</th>
+                        <th>Gambar 2</th>
                         <th>#</th>
                     </tr>
                 </thead>
@@ -108,7 +109,8 @@ function rupiah($angka)
                         echo "<td>" . $no++ . "</td>";
                         echo "<td>" . $data['name'] . "</td>";
                         echo "<td>" . rupiah($data['price']) . "</td>";
-                        echo "<td><img src='/assets/products/" . $data['image'] . "' class='w-20 h-20 object-cover rounded-md' alt=''></td>";
+                        echo "<td><img src='/assets/products/" . $data['image1'] . "' class='w-20 h-20 object-cover rounded-md' alt=''></td>";
+                        echo "<td><img src='/assets/products/" . $data['image2'] . "' class='w-20 h-20 object-cover rounded-md' alt=''></td>";
                         echo "<td><a href='/admin/produk/edit.php?id=" . $data['id'] . "' class='badge bg-emerald-600 text-xs text-white'>edit</a><a href='/admin/produk/drop.php?id=" . $data['id'] . "' class='ml-1 badge bg-red-500 text-xs text-white'>hapus</a></td>";
                         echo "</tr>";
                     }

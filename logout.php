@@ -1,6 +1,12 @@
 <?php
 session_start();
 
-$_SESSION['email'] = null;
-$_SESSION['name'] = null;
-header('location: /login');
+// Hapus semua data sesi
+session_unset();
+
+// Hancurkan sesi
+session_destroy();
+
+// Redirect ke halaman login atau halaman lain jika perlu
+header("Location: login.php");
+exit;
