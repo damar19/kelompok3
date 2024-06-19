@@ -8,6 +8,9 @@ if (!isset($_SESSION['order'])) {
 }
 
 $order = $_SESSION['order'];
+
+require 'app/Conn.php';
+$number = $db->query('SELECT no_wa FROM settings WHERE id = 1')->fetchAll()[0]['no_wa'];
 ?>
 
 <!DOCTYPE html>
@@ -209,8 +212,8 @@ $order = $_SESSION['order'];
             <div class="col-12">
                 <div class="confirmation-message">
                     <p>Screenshot this page and send it to this WhatsApp number for payment:</p>
-                    <a href="https://wa.me/621234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <p><strong>082225228234</strong></p>
+                    <a href="https://wa.me/<?= str_replace("08", "628", $number) ?>" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <p><strong><?= $number ?></strong></p>
                 </div>
             </div>
         </div>

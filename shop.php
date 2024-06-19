@@ -87,7 +87,7 @@ include 'header.php'; // Sesuaikan dengan path header.php Anda
                                         <div class="product-item">
                                             <div class="single-product position-relative mr-0 ml-0">
                                                 <div class="product-image">
-                                                    <a class="d-block" href="product-details.html">
+                                                    <a class="d-block" href="product-detail.php?id=<?= $data['id'] ?>">
                                                         <img src="assets/products/<?= $data['image1']; ?>" alt="Product Image" class="product-image-1 w-100">
                                                         <img src="assets/products/<?= $data['image2']; ?>" alt="Product Image" class="product-image-2 position-absolute w-100">
                                                     </a>
@@ -106,7 +106,7 @@ include 'header.php'; // Sesuaikan dengan path header.php Anda
                                                 </div>
                                                 <div class="product-content">
                                                     <div class="product-title">
-                                                        <h4 class="title-2"> <a href="product-details.html"><?= $data['name']; ?></a></h4>
+                                                        <h4 class="title-2"> <a href="product-detail.php?id=<?= $data['id'] ?>"><?= $data['name']; ?></a></h4>
                                                     </div>
                                                     <div class="product-rating">
                                                         <?php for ($i = 0; $i < 5; $i++) : ?>
@@ -121,7 +121,7 @@ include 'header.php'; // Sesuaikan dengan path header.php Anda
                                                 </div>
                                                 <div class="product-content-listview">
                                                     <div class="product-title">
-                                                        <h4 class="title-2"> <a href="product-details.html"><?= $data['name']; ?></a></h4>
+                                                        <h4 class="title-2"> <a href="product-detail.php?id=<?= $data['id'] ?>"><?= $data['name']; ?></a></h4>
                                                     </div>
                                                     <div class="product-rating">
                                                         <?php for ($i = 0; $i < 5; $i++) : ?>
